@@ -1,0 +1,83 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "common_job_title": "Frontend developer",
+  "common_next": "Next",
+  "common_now": "Now",
+  "common_skip_to_content": "Skip to content",
+
+  "nav_label": "Main",
+  "nav_experience": "Experience",
+  "nav_projects": "Projects",
+  "nav_contact": "Contact",
+  "nav_language": "Language",
+
+  "theme_toggle": "Switch colour theme",
+  "theme_dark": "Dark",
+  "theme_light": "Light",
+
+  "footer_built_with": "Built with SvelteKit",
+  "footer_source": "source on GitHub ↗",
+  "footer_home": "Home ↑",
+
+  "copy_copied": "Copied ✓",
+  "copy_announcement": "Email copied to clipboard",
+
+  "table_when": "When",
+  "table_role": "Role",
+  "table_where": "Where",
+  "table_stack": "Stack",
+  "table_number": "No.",
+  "table_project": "Project",
+  "table_type": "Type",
+  "table_year": "Year",
+
+  "home_scroll": "Scroll ↓",
+  "home_full_experience": "Full experience →",
+  "home_all_projects": "All projects →",
+  "home_copy_email": "Copy email",
+  "home_all_contacts": "All contacts →",
+
+  "experience_description": "Work experience of {name}, frontend developer — Haxagon, freelance web development and Unity lecturing. Education and daily tools.",
+  "experience_jobs": "Jobs",
+  "experience_technologies": "Technologies",
+  "experience_education": "Education",
+  "experience_daily_tools": "Daily tools",
+
+  "contact_description": "Get in touch with {name} — email, GitHub and LinkedIn. Based in Prague, open to new work.",
+  "contact_ways": "Ways to reach me",
+  "contact_email": "Email",
+  "contact_copy": "Copy ⧉",
+  "contact_open": "Open ↗",
+
+  "projects_description": "Selected work and side projects by {name}, frontend developer — web apps, e-shops and games.",
+  "projects_filter": "Filter projects",
+  "projects_filter_all": "All",
+  "projects_filter_work": "Work",
+  "projects_filter_side": "Side projects",
+  "projects_layout": "Layout",
+  "projects_layout_list": "List",
+  "projects_layout_grid": "Grid",
+  "projects_list": "Project list",
+  "projects_type_work": "Work",
+  "projects_type_side": "Side project",
+  "projects_type_school": "School",
+  "projects_screenshot": "[SCREENSHOT — {title}]",
+
+  "project_description": "{title} ({type}) by {name}. Role: {role}. Built with {stack} ({year}).",
+  "project_back": "← All projects",
+  "project_role": "Role",
+  "project_links": "Links",
+  "project_live": "Live ↗",
+  "project_source": "Source ↗",
+  "project_hero_placeholder": "[HERO SCREENSHOT OR SCREEN RECORDING]",
+  "project_detail_placeholder": "[DETAIL SHOT]",
+  "project_mobile_placeholder": "[MOBILE VIEW]",
+  "project_hero_alt": "{title} screenshot",
+  "project_detail_alt": "{title} detail",
+  "project_mobile_alt": "{title} on mobile",
+  "project_next": "Next project — {number}",
+  "project_not_found": "Project not found",
+
+  "error_back_home": "← Back home"
+}

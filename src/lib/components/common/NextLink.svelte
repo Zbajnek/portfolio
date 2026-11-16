@@ -4,7 +4,7 @@ import type { ResolvedPathname } from '$app/types'
 let { href, label, title }: { href: ResolvedPathname, label: string, title: string } = $props()
 </script>
 
-<!-- `href` is typed as ResolvedPathname, so callers must pass a resolve() result. -->
+<!-- `href` is typed as ResolvedPathname, so callers must pass a resolve() or localize() result. -->
 <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 <a
   {href}

@@ -8,6 +8,7 @@
 		"#lib/*": "./src/lib/*",
 		"#components/*": "./src/lib/components/*",
 		"#content": "./src/lib/content/index.ts",
+		"#i18n": "./src/lib/i18n/index.ts",
 		"#motion": "./src/lib/motion/index.ts",
 		"#packages/*": "./src/lib/packages/*/index.ts"
 	},
@@ -20,6 +21,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
+		"@inlang/paraglide-js": "^3.2.2",
 		"@stylistic/eslint-plugin": "^6.0.0",
 		"@sveltejs/adapter-static": "^4.0.1",
 		"@sveltejs/kit": "^3.0.0",

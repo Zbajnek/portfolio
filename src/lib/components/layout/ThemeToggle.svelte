@@ -1,4 +1,6 @@
 <script lang="ts">
+import { m } from '#i18n'
+
 function toggle() {
   const dark = document.documentElement.classList.toggle('dark')
   try {
@@ -12,7 +14,7 @@ function toggle() {
 <!-- The label names the theme you switch *to*; CSS picks it so it is right before hydration. -->
 <button
   type="button"
-  aria-label="Switch colour theme"
+  aria-label={m.theme_toggle()}
   class="inline-flex min-h-11 items-center gap-2 px-1 hover:opacity-60"
   onclick={toggle}
 >
@@ -32,6 +34,6 @@ function toggle() {
     />
     <path d="M7 1a6 6 0 0 1 0 12z" fill="currentColor" />
   </svg>
-  <span class="dark:hidden">Dark</span>
-  <span class="hidden dark:inline">Light</span>
+  <span class="dark:hidden">{ m.theme_dark() }</span>
+  <span class="hidden dark:inline">{ m.theme_light() }</span>
 </button>

@@ -1,10 +1,11 @@
 <script lang="ts">
 import { page } from '$app/state'
 import { site } from '#content'
+import { baseLocale, getLocale, localeInfo, locales, localizeUrl, m, t } from '#i18n'
 
 let {
   title,
-  description = site.description,
+  description = t(site.description),
   image = site.ogImage,
   type = 'website',
   noindex = false,
@@ -22,12 +23,16 @@ let {
   jsonLd?: Record<string, unknown>
 } = $props()
 
-const fullTitle = $derived(title ? `${ title } — ${ site.name }` : `${ site.name } — Frontend developer`)
-const canonical = $derived(new URL(page.url.pathname, site.url).href)
+const locale = getLocale()
+const fullTitle = $derived(title ? `${ title } — ${ site.name }` : `${ site.name } — ${ m.common_job_title() }`)
+// page.url keeps the locale prefix (/cs/…), so the canonical URL points at this language version.
+const canonical = $derived(new URL(page.url.pathname, site.url))
+// Every language version of this page, as fully qualified URLs (required by Google).
+const alternates = $derived(locales.map((l) => ({ locale: l, href: localizeUrl(canonical, { locale: l }).href })))
 const imageUrl = $derived(image ? new URL(image, site.url).href : undefined)
 // Escape `<` so content can never close the script tag early.
 const jsonLdHtml = $derived(
-  jsonLd ? `<script type="application/ld+json">${ JSON.stringify(jsonLd).replace(/</g, '\u003c') }</` + 'script>' : ''
+  jsonLd ? `<script type="application/ld+json">${ JSON.stringify(jsonLd).replace(/</g, '<') }</` + 'script>' : ''
 )
 </script>
 
@@ -37,15 +42,22 @@ const jsonLdHtml = $derived(
   {#if noindex}
     <meta name="robots" content="noindex" />
   {:else}
-    <link rel="canonical" href={canonical} />
+    <link rel="canonical" href={canonical.href} />
+    {#each alternates as alt (alt.locale)}
+      <link rel="alternate" hreflang={alt.locale} href={alt.href} />
+    {/each}
+    <link rel="alternate" hreflang="x-default" href={localizeUrl(canonical, { locale: baseLocale }).href} />
   {/if}
 
   <meta property="og:type" content={type} />
   <meta property="og:site_name" content={site.name} />
-  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale" content={localeInfo[locale].ogLocale} />
+  {#each locales.filter((l) => l !== locale) as l (l)}
+    <meta property="og:locale:alternate" content={localeInfo[l].ogLocale} />
+  {/each}
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
-  <meta property="og:url" content={canonical} />
+  <meta property="og:url" content={canonical.href} />
   {#if imageUrl}
     <meta property="og:image" content={imageUrl} />
     <meta property="og:image:alt" content={fullTitle} />

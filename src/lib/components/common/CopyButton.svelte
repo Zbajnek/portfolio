@@ -1,9 +1,10 @@
 <script lang="ts">
 import type { Snippet } from 'svelte'
+import { m } from '#i18n'
 
 let {
   text,
-  copiedLabel = 'Copied ✓',
+  copiedLabel = m.copy_copied(),
   class: className = '',
   children,
 }: { text: string, copiedLabel?: string, class?: string, children: Snippet } = $props()
@@ -27,4 +28,4 @@ async function copy() {
 <button type="button" class={className} onclick={copy}>
   {#if copied}{ copiedLabel }{:else}{@render children()}{/if}
 </button>
-<span class="sr-only" aria-live="polite">{ copied ? 'Email copied to clipboard' : '' }</span>
+<span class="sr-only" aria-live="polite">{ copied ? m.copy_announcement() : '' }</span>

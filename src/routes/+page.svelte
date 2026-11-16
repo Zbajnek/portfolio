@@ -1,6 +1,6 @@
 <script lang="ts">
-import { resolve } from '$app/paths'
-import { featuredProjects, features, jobs, site, type Project } from '#content'
+import { featuredProjects, features, formatPeriod, jobs, site, type Project } from '#content'
+import { localize, m, t } from '#i18n'
 import { CursorPreview, CursorPreviewState } from '#packages/cursor-preview'
 import CopyButton from '#components/common/CopyButton.svelte'
 import Placeholder from '#components/common/Placeholder.svelte'
@@ -17,10 +17,10 @@ const person = {
   name: site.name,
   givenName: site.firstName,
   familyName: site.lastName,
-  jobTitle: 'Frontend developer',
+  jobTitle: m.common_job_title(),
   url: site.url,
   email: `mailto:${ site.email }`,
-  address: { '@type': 'PostalAddress', addressLocality: 'Prague', addressCountry: 'CZ' },
+  address: { '@type': 'PostalAddress', addressLocality: t(site.city), addressCountry: 'CZ' },
   worksFor: { '@type': 'Organization', name: 'Haxagon' },
   sameAs: [site.github.url, site.linkedin.url],
 }
@@ -43,32 +43,32 @@ function scrollDown(event: MouseEvent) {
     class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6 border-t border-ink pt-5 leading-snug"
     {...reveal({ y: 16, delay: 0.4, stagger: 0.08 })}
   >
-    <p>{ site.role }<br />{ site.current }</p>
-    <p>{ site.location }</p>
-    <p class="flex items-center gap-2.5"><StatusDot />{ site.status }</p>
-    <p class="text-right font-mono text-[13px]"><a href="#experience" onclick={scrollDown}>Scroll ↓</a></p>
+    <p>{ t(site.role) }<br />{ t(site.current) }</p>
+    <p>{ t(site.location) }</p>
+    <p class="flex items-center gap-2.5"><StatusDot />{ t(site.status) }</p>
+    <p class="text-right font-mono text-[13px]"><a href="#experience" onclick={scrollDown}>{ m.home_scroll() }</a></p>
   </div>
 </section>
 
 <!-- Experience -->
 <section id="experience" class="scroll-mt-4 px-gutter pt-30 pb-20">
   <div class="mb-12 flex flex-wrap items-end justify-between gap-4" {...reveal()}>
-    <h2 class="text-headline font-medium">Experience</h2>
-    <a href={resolve('/experience')} class="inline-flex min-h-11 items-center font-mono text-[13px]">Full experience →</a>
+    <h2 class="text-headline font-medium">{ m.nav_experience() }</h2>
+    <a href={localize('/experience')} class="inline-flex min-h-11 items-center font-mono text-[13px]">{ m.home_full_experience() }</a>
   </div>
   <div class="overflow-x-auto">
     <div class="min-w-190" {...reveal({ y: 24, stagger: 0.08 })}>
       <div class="{tableCols} label border-t border-ink py-3.5">
-        <span>When</span><span>Role</span><span>Where</span><span>Stack</span>
+        <span>{ m.table_when() }</span><span>{ m.table_role() }</span><span>{ m.table_where() }</span><span>{ m.table_stack() }</span>
       </div>
       {#each jobs as job (job.id)}
         <a
-          href={resolve(`/experience#${ job.id }`)}
+          href={localize(`/experience#${ job.id }`)}
           class="{tableCols} items-baseline border-t border-ink py-7"
         >
-          <span class="font-mono text-sm">{ job.when }</span>
-          <span class="text-[32px] tracking-[-0.02em]">{ job.role }</span>
-          <span class="text-xl">{ job.where }</span>
+          <span class="font-mono text-sm">{ formatPeriod(job) }</span>
+          <span class="text-[32px] tracking-[-0.02em]">{ t(job.role) }</span>
+          <span class="text-xl">{ t(job.where) }</span>
           <span class="text-muted">{ job.stack.join(', ') }</span>
         </a>
       {/each}
@@ -81,8 +81,8 @@ function scrollDown(event: MouseEvent) {
 {#if features.projects}
   <section class="px-gutter py-20">
     <div class="mb-12 flex flex-wrap items-end justify-between gap-4" {...reveal()}>
-      <h2 class="text-headline font-medium">Projects</h2>
-      <a href={resolve('/projects')} class="inline-flex min-h-11 items-center font-mono text-[13px]">All projects →</a>
+      <h2 class="text-headline font-medium">{ m.nav_projects() }</h2>
+      <a href={localize('/projects')} class="inline-flex min-h-11 items-center font-mono text-[13px]">{ m.home_all_projects() }</a>
     </div>
     <div
       role="presentation"
@@ -93,7 +93,7 @@ function scrollDown(event: MouseEvent) {
       <div {...reveal({ y: 24, stagger: 0.08 })}>
         {#each featuredProjects as project, i (project.slug)}
           <a
-            href={resolve('/projects/[slug]', { slug: project.slug })}
+            href={localize(`/projects/${ project.slug }`)}
             class="flex flex-wrap items-baseline justify-between gap-4 border-t border-ink py-5.5 hover:pl-10 hover:text-accent hover:opacity-100"
             onpointerenter={preview.enter(project)}
           >
@@ -108,7 +108,7 @@ function scrollDown(event: MouseEvent) {
       </div>
       <CursorPreview {preview} class="h-57.5 w-85">
         {#snippet children(item)}
-          <Placeholder class="h-full w-full" label="[SCREENSHOT — {item.title}]" src={item.images?.hero} />
+          <Placeholder class="h-full w-full" label={m.projects_screenshot({ title: item.title })} src={item.images?.hero} />
         {/snippet}
       </CursorPreview>
     </div>
@@ -117,7 +117,7 @@ function scrollDown(event: MouseEvent) {
 
 <!-- Contact -->
 <section class="px-gutter pt-30 pb-16" {...reveal({ stagger: 0.1 })}>
-  <h2 class="mb-10 text-headline font-medium">Contact</h2>
+  <h2 class="mb-10 text-headline font-medium">{ m.nav_contact() }</h2>
   <a
     href="mailto:{site.email}"
     class="block border-b border-ink pb-6 text-email wrap-anywhere"
@@ -126,10 +126,10 @@ function scrollDown(event: MouseEvent) {
     <CopyButton
       text={site.email}
       class="min-h-12 min-w-37.5 bg-ink px-5.5 py-3.5 text-paper hover:opacity-80"
-    >Copy email</CopyButton>
+    >{ m.home_copy_email() }</CopyButton>
     <a
-      href={resolve('/contact')}
+      href={localize('/contact')}
       class="inline-flex min-h-12 items-center border border-ink px-5.5 py-3.5"
-    >All contacts →</a>
+    >{ m.home_all_contacts() }</a>
   </div>
 </section>

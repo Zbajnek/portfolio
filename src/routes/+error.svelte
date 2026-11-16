@@ -1,7 +1,7 @@
 <script lang="ts">
 import { page } from '$app/state'
-import { resolve } from '$app/paths'
 import Seo from '#components/common/Seo.svelte'
+import { localize, m } from '#i18n'
 </script>
 
 <Seo title="{page.status} — {page.error?.message}" noindex />
@@ -10,6 +10,6 @@ import Seo from '#components/common/Seo.svelte'
   <h1 class="text-title font-medium">{ page.status }</h1>
   <div class="flex flex-wrap justify-between gap-4 border-t border-ink pt-5">
     <p>{ page.error?.message }</p>
-    <a href={resolve('/')} class="font-mono text-[13px]">← Back home</a>
+    <a href={localize('/')} class="font-mono text-[13px]">{ m.error_back_home() }</a>
   </div>
 </section>

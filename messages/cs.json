@@ -1,0 +1,83 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "common_job_title": "Frontend vývojář",
+  "common_next": "Další",
+  "common_now": "Současnost",
+  "common_skip_to_content": "Přeskočit na obsah",
+
+  "nav_label": "Hlavní",
+  "nav_experience": "Zkušenosti",
+  "nav_projects": "Projekty",
+  "nav_contact": "Kontakt",
+  "nav_language": "Jazyk",
+
+  "theme_toggle": "Přepnout barevný motiv",
+  "theme_dark": "Tmavý",
+  "theme_light": "Světlý",
+
+  "footer_built_with": "Postaveno na SvelteKitu",
+  "footer_source": "zdrojový kód na GitHubu ↗",
+  "footer_home": "Domů ↑",
+
+  "copy_copied": "Zkopírováno ✓",
+  "copy_announcement": "E-mail zkopírován do schránky",
+
+  "table_when": "Kdy",
+  "table_role": "Pozice",
+  "table_where": "Kde",
+  "table_stack": "Technologie",
+  "table_number": "Č.",
+  "table_project": "Projekt",
+  "table_type": "Typ",
+  "table_year": "Rok",
+
+  "home_scroll": "Dolů ↓",
+  "home_full_experience": "Všechny zkušenosti →",
+  "home_all_projects": "Všechny projekty →",
+  "home_copy_email": "Kopírovat e-mail",
+  "home_all_contacts": "Všechny kontakty →",
+
+  "experience_description": "Pracovní zkušenosti – {name}, frontend vývojář: Haxagon, tvorba webů na volné noze a lektorování Unity. Vzdělání a nástroje, se kterými denně pracuji.",
+  "experience_jobs": "Pracovní pozice",
+  "experience_technologies": "Technologie",
+  "experience_education": "Vzdělání",
+  "experience_daily_tools": "Každodenní nástroje",
+
+  "contact_description": "Napište mi – e-mail, GitHub a LinkedIn. {name}, frontend vývojář z Prahy, otevřený nové práci.",
+  "contact_ways": "Jak mě kontaktovat",
+  "contact_email": "E-mail",
+  "contact_copy": "Kopírovat ⧉",
+  "contact_open": "Otevřít ↗",
+
+  "projects_description": "Vybraná práce a vedlejší projekty – {name}, frontend vývojář: webové aplikace, e-shopy a hry.",
+  "projects_filter": "Filtrovat projekty",
+  "projects_filter_all": "Vše",
+  "projects_filter_work": "Práce",
+  "projects_filter_side": "Vedlejší projekty",
+  "projects_layout": "Zobrazení",
+  "projects_layout_list": "Seznam",
+  "projects_layout_grid": "Mřížka",
+  "projects_list": "Seznam projektů",
+  "projects_type_work": "Práce",
+  "projects_type_side": "Vedlejší projekt",
+  "projects_type_school": "Škola",
+  "projects_screenshot": "[SNÍMEK — {title}]",
+
+  "project_description": "{title} ({type}) – {name}. Role: {role}. Technologie: {stack} ({year}).",
+  "project_back": "← Všechny projekty",
+  "project_role": "Role",
+  "project_links": "Odkazy",
+  "project_live": "Web ↗",
+  "project_source": "Kód ↗",
+  "project_hero_placeholder": "[HLAVNÍ SNÍMEK NEBO ZÁZNAM OBRAZOVKY]",
+  "project_detail_placeholder": "[DETAILNÍ ZÁBĚR]",
+  "project_mobile_placeholder": "[MOBILNÍ ZOBRAZENÍ]",
+  "project_hero_alt": "{title} – snímek obrazovky",
+  "project_detail_alt": "{title} – detail",
+  "project_mobile_alt": "{title} na mobilu",
+  "project_next": "Další projekt — {number}",
+  "project_not_found": "Projekt nenalezen",
+
+  "error_back_home": "← Zpět domů"
+}
