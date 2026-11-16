@@ -4,7 +4,7 @@ import { sveltekit } from '@sveltejs/kit/vite'
 import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import { defineConfig } from 'vite'
 // Imported from its own file: content.ts depends on the Paraglide output, which doesn't exist yet at config time.
-import { features } from '#content'
+import { features } from '#lib/content/features.ts'
 
 export default defineConfig({
   plugins: [
