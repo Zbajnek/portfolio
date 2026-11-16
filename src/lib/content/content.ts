@@ -30,7 +30,7 @@ export const site = {
   contactStatus: { en: 'I usually reply within a day.', cs: 'Obvykle odpovím do jednoho dne.' },
   intro: {
     en: 'Frontend at Haxagon. Freelance web. Games in Unity as a passion.',
-    cs: 'Frontend v Haxagonu. Weby na volné noze. Hry v Unity z lásky.',
+    cs: 'Frontend v Haxagonu. Weby na volné noze. Hry v Unity z nadšení.',
   },
   email: 'hello@zbynekzidlicky.cz',
   github: { handle: 'github.com/Zbajnek', url: 'https://github.com/Zbajnek' },
@@ -65,7 +65,7 @@ export const jobs: Job[] = [
         'Refactored shared frontend infrastructure into reusable composables and utilities, cutting duplicated code across multiple views.'
       ],
       cs: [
-        'Vyvíjím a udržuji frontend Haxagonu, vzdělávací platformy, kterou používají stovky škol.',
+        'Vyvíjím a udržuji frontend Haxagonu, vzdělávací platformy, kterou využívají stovky škol.',
         'Přepracoval jsem sdílenou frontendovou infrastrukturu do znovupoužitelných composables a utilit, čímž jsem omezil duplicitní kód napříč řadou obrazovek.'
       ],
     },
@@ -75,7 +75,7 @@ export const jobs: Job[] = [
     from: 2023,
     role: { en: 'Freelance Web Developer', cs: 'Webový vývojář na volné noze' },
     where: { en: 'Freelance', cs: 'Na volné noze' },
-    stack: ['SvelteKit', 'TypeScript', 'Shopify', 'Shoptet'],
+    stack: ['SvelteKit', 'TypeScript', 'Shoptet'],
     points: {
       en: [
         'Building websites and e-shops for small businesses, from first call to launch.',

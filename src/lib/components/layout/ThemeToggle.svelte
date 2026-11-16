@@ -11,11 +11,10 @@ function toggle() {
 }
 </script>
 
-<!-- The label names the theme you switch *to*; CSS picks it so it is right before hydration. -->
 <button
   type="button"
   aria-label={m.theme_toggle()}
-  class="inline-flex min-h-11 items-center gap-2 px-1 hover:opacity-60"
+  class="inline-flex min-h-11 items-center gap-2 px-1 hover:opacity-60 transition-opacity duration-150"
   onclick={toggle}
 >
   <svg
